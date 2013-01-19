@@ -4,32 +4,27 @@
     ViewBag.Title = "Register";
 }
 
-<p>
-    Passwords must be at least @Membership.MinRequiredPasswordLength characters long.
-</p>
+<div id="register">
+    <div class="logo"></div>
+    <h1>Create an Account</h1>
 
 @using (Html.BeginForm()) {
-
-    <ul data-role="listview" data-inset="true">
-        <li data-role="list-divider">Details</li>
-
-        <li data-role="fieldcontain">
-            @Html.LabelFor(m => m.UserName)
+    <div class="signUpForm">
+        <div class="email">
             @Html.TextBoxFor(m => m.UserName)            
-        </li>
+</div>
 
-        <li data-role="fieldcontain">
-            @Html.LabelFor(m => m.Password)
+        <div class="password">
             @Html.PasswordFor(m => m.Password)            
-        </li>
+        </div>
 
-        <li data-role="fieldcontain">
-            @Html.LabelFor(m => m.ConfirmPassword)
+        <div class="confirm">
             @Html.PasswordFor(m => m.ConfirmPassword)            
-        </li>
-
-        <li data-role="fieldcontain">
+    </div>
+        <div class="submit">
             <input type="submit" value="Register" />
-        </li>
-    </ul>
+    </div>
+    </div>
 }
+
+</div>

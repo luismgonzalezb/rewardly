@@ -193,3 +193,22 @@ body
 #login .signUpBtns .fbLogin {
     background: -webkit-linear-gradient(top, rgba(100,128,183,1) 0%,rgba(63,93,160,1) 100%); 
 }
+
+/* Create Account Page */
+#register {
+    width: 250px;
+    height: 400px;
+    margin: 0 auto;
+    padding-top: 40px;
+
+}
+
+#register h1 {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-size: 25px;
+    color: #6b0003;
+    line-height: 60px;
+    display: block;
+}
