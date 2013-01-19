@@ -331,13 +331,10 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
-    <Content Include="Views\Home\LocationDetails.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Views\Home\LocationsList.cshtml" />
-    <Content Include="Views\Home\LocationDetails.cshtml" />
     <Content Include="Views\Home\RewardCatalog.cshtml" />
     <Content Include="Views\Home\SearchCompany.cshtml" />
+    <Content Include="Views\Home\LocationDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
