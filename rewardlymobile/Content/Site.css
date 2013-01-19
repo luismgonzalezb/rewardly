@@ -97,34 +97,99 @@ body
 
 /* Loging Page */
 #login {
-    width: 500px;
-    height: 800px;
-    margin: 245px auto 0 auto;
-    font-size: 30px;
+    width: 250px;
+    height: 400px;
+    margin: 0 auto;
+    padding-top: 123px;
+    font-size: 15px;
     font-weight: bold;
     text-transform: uppercase;
     color: #fceed7;
-    line-height: 60px;
+    line-height: 30px;
 }
 
 #login .logoLarge {
-    width: 480px;
-    height: 123px;
-    margin: 0 auto 80px auto;
+    width: 240px;
+    height: 62px;
+    margin: 0 auto 40px auto;
     background: url(images/logoLarge.png) no-repeat center;
     background-size: 240px 62px;
 }
 
 #login .signInForm {
-    width: 500px;
+    width: 250px;
     margin: 0 auto;
 }
 
-#login .signInForm input[type=text] {
-    width: 450px;
-    height: 60px;
-    margin-bottom: 30px;
-    padding: 0 20px;
-    border: 5px solid #e9ddcb;
+#login .signInForm input[type=text], #login .signInForm input[type=password] {
+    width: 225px;
+    height: 30px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    border: 2px solid #e9ddcb;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #beb4a6;
+    line-height: 30px;
+}
 
+#login .signInForm .submit {
+    width: 250px;
+    height: 36px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+#login .signInForm .submit input[type=submit] {
+    width: 80px;
+    height: 34px;
+    margin: 0 10px 0 0;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 34px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: -webkit-linear-gradient(top, rgba(251,62,74,1) 0%,rgba(218,0,14,1) 100%);
+    -webkit-box-shadow: 0px 2px 2px #d9d7d5;
+    box-shadow: 0px 2px 2px #d9d7d5;
+}
+
+#login .signInForm .submit .forgot {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #da000e;
+    line-height: 34px;
+    text-decoration: none;
+}
+
+#login .signUpBtns {
+    width: 250px;
+}
+
+#login .signUpBtns a {
+    width: 250px;
+    height: 34px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 34px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: -webkit-linear-gradient(top, rgba(251,62,74,1) 0%,rgba(218,0,14,1) 100%);
+    -webkit-box-shadow: 0px 2px 2px #d9d7d5;
+    box-shadow: 0px 2px 2px #d9d7d5;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+#login .signUpBtns .fbLogin {
+    background: -webkit-linear-gradient(top, rgba(100,128,183,1) 0%,rgba(63,93,160,1) 100%); 
 }

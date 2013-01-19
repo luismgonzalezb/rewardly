@@ -14,25 +14,22 @@
         @Html.TextBoxFor(m => m.UserName)            
     </div>
     <div class="passWord">
-        @Html.PasswordFor(m => m.Password)            
+        @Html.TextBoxFor(m => m.Password)            
     </div>
     <div class="submit">
-        <input type="submit" value="Log in" />
+        <input type="submit" value="Login" />
+        <a href="javascript:void(0);" class="forgot">Forgot Password</a>
     </div>
 </div>
 }
 
 <div class="signUpBtns">
-    <div class="signUp">
-        Sign Up button
-    </div>
-    <div id="fbLogin">
-        FaceBook Thing
-    </div>
+    <a href="" class="signUp">Create Account</a>
+    <a href="" class="fbLogin">Login with Facebook</a>
 </div>
 
 </div>
 
 @section Scripts {
-
+    
 }
