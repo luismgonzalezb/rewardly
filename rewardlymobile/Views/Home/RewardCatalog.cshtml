@@ -17,7 +17,12 @@
 	</div>
 }
 <div id="reward">
-<div id="rewardCode"></div>
+<div id="rewardCode">
+	<div class="coupon">
+		<h2>Redeemed Coupon:</h2>
+		<span></span>
+	</div>
+</div>
 <ul id="list">
 	@foreach (var item in Model) { 
 	<li>
@@ -55,15 +60,24 @@
 		};
 
 		function callback(response) {
-			//window.location('http://rewardlymobile.azurewebsites.net');
+			
 		}
 		FB.ui(obj, callback);
 
-		$.post("/Home/RedimAjax", { id: catId}, function (data) {
-			if (data.success == true) {
-				$("#rewardCode").html(data.code);
-			}
-		});
+		$("#rewardCode .coupon span").html('LKJSHDFJH');
+		$("#rewardCode").show();
+
+		//console.log('post');
+		//$.post("/Home/RedimAjax", { id: catId }, function (data) {
+		//    console.log(data);
+		//    if (data.success == true) {
+		//        $("#rewardCode").html('LKJSHDFJH');
+		//        $("#rewardCode").show();
+				
+		//    } else {
+		//        console.log('failure');
+		//    }
+		//});
 
 	}
 </script>

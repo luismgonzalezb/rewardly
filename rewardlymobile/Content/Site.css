@@ -54,6 +54,7 @@ body, select, input, textarea { color: #444; }
 h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
+.clear { clear: both; }
 /*
     // ========================================== \\
    ||                                              ||
@@ -889,3 +890,45 @@ a, a:hover, a:visited { color: #6b0003; font-weight: bold; text-decoration: none
     display: block;
 }
 
+#reward #rewardCode {
+    width: 300px;
+    height: 160px;
+    margin: 0;
+    padding: 0 10px;
+    background-color: #6b0003;
+    -webkit-box-shadow: inset 0px 0px 75px 25px #4e0002;
+box-shadow: inset 0px 0px 75px 25px #4e0002;
+    display: none;
+}
+
+#reward #rewardCode .coupon {
+width: 280px;
+height: 90px;
+background-color: #fff;
+-webkit-box-shadow: 0px 2px 6px 2px #111;
+box-shadow: 0px 2px 6px 2px #111;
+padding: 20px 0;
+margin: 0 auto;
+position: relative;
+top: 10px;
+
+}
+
+#reward #rewardCode .coupon h2 {
+    text-align: center;
+    color: #6b0003;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: bold;
+}
+
+#reward #rewardCode .coupon span {
+text-align: center;
+color: #000;
+font-size: 42px;
+line-height: 24px;
+font-weight: bold;
+display: block;
+position: relative;
+top: 27px;
+}
