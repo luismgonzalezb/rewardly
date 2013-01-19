@@ -7,4 +7,18 @@
             $(this).val('');
         }
     });
+
+    //Slide Menu
+    $('#btnMenu').toggle(function () {
+        $('#wrapper').animate({
+            //opacity: .95,
+            left: '240px'
+        }, 500);
+    },
+    function () {
+        $('#wrapper').animate({
+            //opacity: 1,
+            left: '0px'
+        }, 500);
+    });
 });

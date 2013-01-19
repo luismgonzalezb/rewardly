@@ -7,7 +7,7 @@
 
 @section header {
 	<div id="header">
-		<a href="javascript:history.back();" id="btnMenu">
+		<a href="javascript:history.back();" id="btnBack">
 			<img src="@Url.Content("~/Content/images/icon-back.png")" width="30px" height="28px" />
 		</a>
 		<div class="details-title">Search 72758</div>
@@ -22,7 +22,7 @@
 	</div>
 	<h2>Type of Venue</h2>
 	<div class="venues">
-    <span></span>
+	<span></span>
 	@Html.DropDownList("venueId",(SelectList)ViewBag.Venues)
 	</div>
 	<div class="submit">
@@ -34,7 +34,7 @@
 <ul id="list">
 	@foreach (var item in Model) {
 	<li>
-	    <a href="@Url.Action("CompanyAdd", "Home", new { id=item.companyId })">
+		<a href="@Url.Action("CompanyAdd", "Home", new { id=item.companyId })">
 		<img src="@item.companyLogo" width="82px" height="82px" />
 		<div class="copy">
 			<span class="name">@item.companyName</span><br />
@@ -43,7 +43,7 @@
 		</a>
 	</li>
 	}
-    
+	
 </ul>
 </div>
 

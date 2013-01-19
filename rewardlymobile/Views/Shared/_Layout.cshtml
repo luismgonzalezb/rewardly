@@ -27,6 +27,13 @@
 
             </div>
         </div>
+        <div id="sideMenu">
+            <ul>
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="javascript:void(0);">Settings</a></li>
+                <li><a href="@Url.Action("LogOff", "Account")">Logout</a></li>
+            </ul>
+        </div>
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/scripts")

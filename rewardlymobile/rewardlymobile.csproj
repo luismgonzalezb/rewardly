@@ -214,6 +214,7 @@
     <Content Include="Content\images\icon-arrow.png" />
     <Content Include="Content\images\icon-back.png" />
     <Content Include="Content\images\icon-checkin.png" />
+    <Content Include="Content\images\icon-down-arrow.png" />
     <Content Include="Content\images\icon-promos.png" />
     <Content Include="Content\images\icons-18-black.png" />
     <Content Include="Content\images\icons-18-white.png" />
