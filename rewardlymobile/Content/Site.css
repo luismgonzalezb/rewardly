@@ -198,11 +198,11 @@ a, a:hover, a:visited { color: #6b0003; font-weight: bold; text-decoration: none
 }
 
 #login .signInForm .submit .forgot {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
     color: #da000e;
-    line-height: 34px;
+    line-height: 28px;
     text-decoration: none;
 }
 
@@ -301,9 +301,8 @@ a, a:hover, a:visited { color: #6b0003; font-weight: bold; text-decoration: none
 }
 
 #register .signUpForm .submit input[type=submit] {
-    width: 80px;
+    width: 100px;
     height: 34px;
-    margin: 0 10px 0 0;
     border: none;
     font-size: 15px;
     font-weight: bold;

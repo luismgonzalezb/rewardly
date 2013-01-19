@@ -1,4 +1,13 @@
 ﻿$(document).ready(function () {
+    // When ready...
+    window.addEventListener("load", function () {
+        // Set a timeout...
+        setTimeout(function () {
+            // Hide the address bar!
+            window.scrollTo(0, 1);
+        }, 0);
+    });
+
     //Clear form fields on focus
     $('input').focus(function () {
         if ($(this).attr('id') == 'Password' || $(this).attr('id') == 'ConfirmPassword') {
