@@ -23,6 +23,7 @@ namespace rewardlyapi.Controllers
 		public IEnumerable<company> GetSearchCompanies(int venueId, int prizePoint)
 		{
 
+			List<location> disctingLocation = db.locations.GroupBy(p => p.locationId).Select(g => g.FirstOrDefault()).ToList();
 			//int[] companyIds = (from loc in db.locations
 			//					where loc.venueId == venueId && loc.pricePoint < prizePoint
 			//					group loc by loc.locationId).Select(x => x.First());
@@ -111,19 +112,6 @@ namespace rewardlyapi.Controllers
 		{
 			db.Dispose();
 			base.Dispose(disposing);
-		}
-
-		public static IEnumerable<TSource> DistinctBy<TSource, TKey>
-			(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-		{
-			HashSet<TKey> seenKeys = new HashSet<TKey>();
-			foreach (TSource element in source)
-			{
-				if (seenKeys.Add(keySelector(element)))
-				{
-					yield return element;
-				}
-			}
 		}
 
 	}

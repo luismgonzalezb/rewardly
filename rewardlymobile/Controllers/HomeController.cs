@@ -27,12 +27,13 @@ namespace rewardly.Controllers
 			ViewBag.Venues = sl;
 
 			/*GET THE SEARCH*/
-			client = new BaseClient(baseApiUrl, "Company", "GetSearchCompanies");
-			NameValueCollection parms = new NameValueCollection() {
-					{ "venueId", "1" }, 
-					{ "prizePoint", "5000" } 
-				};
-			List<company> companies = client.Get<List<company>>(parms);
+			client = new BaseClient(baseApiUrl, "Company", "Getcompanies");
+			//NameValueCollection parms = new NameValueCollection() {
+			//		{ "venueId", "1" }, 
+			//		{ "prizePoint", "5000" } 
+			//	};
+			//List<company> companies = client.Get<List<company>>(parms);
+			List<company> companies = client.Get<List<company>>();
 
 			return View(companies);
 		}
