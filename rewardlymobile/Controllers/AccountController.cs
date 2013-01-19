@@ -65,7 +65,11 @@ namespace rewardlyadmin.Controllers
 		[AllowAnonymous]
 		public ActionResult Register()
 		{
-			return View();
+            RegisterModel model = new RegisterModel();
+            model.UserName = "email";
+            model.Password = "password";
+            model.ConfirmPassword = "confirm password";
+			return View(model);
 		}
 
 		//

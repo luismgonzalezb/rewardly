@@ -15,14 +15,15 @@
 </div>
 
         <div class="password">
-            @Html.PasswordFor(m => m.Password)            
+            @Html.TextBoxFor(m => m.Password)            
         </div>
 
         <div class="confirm">
-            @Html.PasswordFor(m => m.ConfirmPassword)            
+            @Html.TextBoxFor(m => m.ConfirmPassword)            
     </div>
         <div class="submit">
-            <input type="submit" value="Register" />
+            <input type="submit" value="Sign Up" />
+            <a href="@Url.Action("Index", "Home")" class="cancel">Cancel</a>
     </div>
     </div>
 }

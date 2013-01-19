@@ -200,7 +200,14 @@ body
     height: 400px;
     margin: 0 auto;
     padding-top: 40px;
+}
 
+#register .logo {
+    width: 103px;
+    height: 103px;
+    margin: 0 auto 30px auto;
+    background: url(images/logo-register.png) no-repeat center;
+    background-size: 103px 103px;
 }
 
 #register h1 {
@@ -211,4 +218,67 @@ body
     color: #6b0003;
     line-height: 60px;
     display: block;
+}
+
+#register .signUpForm {
+    width: 250px;
+    margin: 0 auto;
+}
+
+#register .signUpForm input[type=text], #register .signUpForm input[type=password] {
+    width: 225px;
+    height: 30px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    border: 2px solid #e9ddcb;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #beb4a6;
+    line-height: 30px;
+}
+
+#register .signUpForm .submit {
+    width: 250px;
+    height: 36px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+#register .signUpForm .submit input[type=submit] {
+    width: 80px;
+    height: 34px;
+    margin: 0 10px 0 0;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 34px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: -webkit-linear-gradient(top, rgba(251,62,74,1) 0%,rgba(218,0,14,1) 100%);
+    -webkit-box-shadow: 0px 2px 2px #d9d7d5;
+    box-shadow: 0px 2px 2px #d9d7d5;
+}
+
+#register .signUpForm .submit .cancel {
+    width: 80px;
+    height: 34px;
+    margin: 0;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    line-height: 34px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: -webkit-linear-gradient(top, rgba(155,0,4,1) 0%,rgba(107,0,3,1) 100%);
+    -webkit-box-shadow: 0px 2px 2px #d9d7d5;
+    box-shadow: 0px 2px 2px #d9d7d5;
+    display: block;
+    float: right;
 }
