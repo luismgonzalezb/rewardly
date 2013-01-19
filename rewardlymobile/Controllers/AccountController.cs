@@ -23,9 +23,9 @@ namespace rewardlyadmin.Controllers
 		public ActionResult Login(string returnUrl)
 		{
 			ViewBag.ReturnUrl = returnUrl;
-            LoginModel model = new LoginModel();
-            model.UserName = "email";
-            model.Password = "password";
+			LoginModel model = new LoginModel();
+			model.UserName = "email";
+			model.Password = "password";
 			return View(model);
 		}
 
@@ -305,8 +305,25 @@ namespace rewardlyadmin.Controllers
 		[ChildActionOnly]
 		public ActionResult ExternalLoginsList(string returnUrl)
 		{
+			List<AuthenticationClientData> clientData = new List<AuthenticationClientData>();
+			if (WebSecurity.IsAuthenticated)
+			{
+				List<string> accounts = (from account in OAuthWebSecurity.GetAccountsFromUserName(User.Identity.Name) select account.Provider).ToList();
+				ICollection<AuthenticationClientData> allClients = OAuthWebSecurity.RegisteredClientData;
+				foreach (AuthenticationClientData client in allClients)
+				{
+					if (accounts.Contains(client.AuthenticationClient.ProviderName) == false)
+					{
+						clientData.Add(client);
+					}
+				}
+			}
+			else
+			{
+				clientData = OAuthWebSecurity.RegisteredClientData.ToList();
+			}
 			ViewBag.ReturnUrl = returnUrl;
-			return PartialView("_ExternalLoginsListPartial", OAuthWebSecurity.RegisteredClientData);
+			return PartialView("_ExternalLoginsListPartial", clientData);
 		}
 
 		[ChildActionOnly]
