@@ -1,22 +1,29 @@
 ﻿@model IEnumerable<rewardly.Models.company>
 
 @{
-    ViewBag.Title = "SearchCompany";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "SearchCompany";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>SearchCompany</h2>
 
-@Html.DropDownList("venueId",(SelectList)ViewBag.Venues)
+@using (Html.BeginForm()) {
+
+	@Html.DropDownList("venueId",(SelectList)ViewBag.Venues)
+	@Html.TextBox("prizePoint")
+	<div class="submit">
+		<input type="submit" value="Refresh" />
+	</div>
+}
 
 <ul>
 
 @foreach (var item in Model) {
-    <li>
-        @Html.DisplayFor(modelItem => item.companyName)
-        @Html.DisplayFor(modelItem => item.companyPhone)
-        @Html.DisplayFor(modelItem => item.companyLogo)
-    </li>
+	<li>
+		@Html.DisplayFor(modelItem => item.companyName)
+		@Html.DisplayFor(modelItem => item.companyPhone)
+		@Html.DisplayFor(modelItem => item.companyLogo)
+	</li>
 }
 </ul>
 

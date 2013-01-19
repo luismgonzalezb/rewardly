@@ -22,12 +22,14 @@ namespace rewardlyapi.Controllers
 
 		public IEnumerable<company> GetSearchCompanies(int venueId, int prizePoint)
 		{
-
-			List<location> disctingLocation = db.locations.GroupBy(p => p.locationId).Select(g => g.FirstOrDefault()).ToList();
-			//int[] companyIds = (from loc in db.locations
-			//					where loc.venueId == venueId && loc.pricePoint < prizePoint
-			//					group loc by loc.locationId).Select(x => x.First());
-			List<company> companies = new List<company>();
+			int[] companyIds = db.locations
+				.Where(loc => loc.venueId == venueId && loc.pricePoint < prizePoint)
+				.GroupBy(p => p.locationId)
+				.Select(g => g.FirstOrDefault())
+				.ToList()
+				.Select(l => l.locationId)
+				.ToArray();
+			List<company> companies = (from cmp in db.companies where companyIds.Contains(cmp.companyId) select cmp).ToList();
 			return companies;
 		}
 
