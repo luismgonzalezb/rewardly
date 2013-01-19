@@ -17,6 +17,7 @@
 	</div>
 }
 <div id="reward">
+<div id="rewardCode"></div>
 <ul id="list">
 	@foreach (var item in Model) { 
 	<li>
@@ -54,9 +55,15 @@
 		};
 
 		function callback(response) {
-			window.location('http://rewardlymobile.azurewebsites.net');
+			//window.location('http://rewardlymobile.azurewebsites.net');
 		}
-
 		FB.ui(obj, callback);
+
+		$.post("/Home/RedimAjax", { id: catId}, function (data) {
+			if (data.success == true) {
+				$("#rewardCode").html(data.code);
+			}
+		});
+
 	}
 </script>

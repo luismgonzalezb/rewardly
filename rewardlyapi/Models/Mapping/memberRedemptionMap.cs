@@ -17,6 +17,8 @@ namespace rewardly.Models.Mapping
 			this.Property(t => t.catalogId).HasColumnName("catalogId");
 			this.Property(t => t.datetime).HasColumnName("datetime");
 			this.Property(t => t.expires).HasColumnName("expires");
+			this.Property(t => t.code).HasColumnName("code");
+			this.Property(t => t.redemed).HasColumnName("redemed");
 		}
 	}
 }

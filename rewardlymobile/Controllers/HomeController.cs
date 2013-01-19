@@ -120,5 +120,31 @@ namespace rewardly.Controllers
 			}
 		}
 
+		[HttpPost]
+		public ActionResult RedimAjax(int id)
+		{
+			try
+			{
+				memberRedemption redem = new memberRedemption();
+				redem.catalogId = id;
+				redem.UserId = WebSecurity.CurrentUserId;
+				redem.datetime = DateTime.Now;
+				redem.expires = DateTime.Now.AddYears(3);
+				BaseClient client = new BaseClient(baseApiUrl, "Rewards", "PostCheckin");
+				string result = client.Post<memberRedemption>(redem);
+				client = new BaseClient(baseApiUrl, "Rewards", "GetCode");
+				NameValueCollection parms = new NameValueCollection() {
+					{ "UserId", WebSecurity.CurrentUserId.ToString() }, 
+					{ "catalogId", id.ToString() } 
+				};
+				string getCode = client.Get<string>(parms);
+				return Json(new { success = true, getCode });
+			}
+			catch
+			{
+				return Json(new { success = false });
+			}
+		}
+
 	}
 }
