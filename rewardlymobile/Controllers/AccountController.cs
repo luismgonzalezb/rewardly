@@ -23,7 +23,10 @@ namespace rewardlyadmin.Controllers
 		public ActionResult Login(string returnUrl)
 		{
 			ViewBag.ReturnUrl = returnUrl;
-			return View();
+            LoginModel model = new LoginModel();
+            model.UserName = "email";
+            model.Password = "password";
+			return View(model);
 		}
 
 		//

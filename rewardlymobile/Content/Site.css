@@ -13,8 +13,7 @@ abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
 table { border-collapse: collapse; border-spacing: 0; }
 hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
 input, select { vertical-align: middle; }
-body { font:13px/1.231 sans-serif; *font-size:small;
-}
+body { font:13px/1.231 sans-serif; *font-size:small;}
 select, input, textarea, button { font:99% sans-serif; }
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
 html { overflow-y: scroll; }
@@ -80,10 +79,52 @@ body
 {
     margin: 0;
     padding: 0;
+    font: 14px/16px Helvetica, Arial, sans;
 }
 #wrapper
 {
     width: 320px;
+    min-height: 548px;
     margin: 0 auto;
     padding: 0;
+    background-color: #fff;
+    -webkit-box-shadow: inset 0px 0px 140px 30px #fbf4e8;
+    box-shadow: inset 0px 0px 140px 30px #fbf4e8;
+
+}
+
+/* Pages */
+
+/* Loging Page */
+#login {
+    width: 500px;
+    height: 800px;
+    margin: 245px auto 0 auto;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fceed7;
+    line-height: 60px;
+}
+
+#login .logoLarge {
+    width: 480px;
+    height: 123px;
+    margin: 0 auto 80px auto;
+    background: url(images/logoLarge.png) no-repeat center;
+    background-size: 240px 62px;
+}
+
+#login .signInForm {
+    width: 500px;
+    margin: 0 auto;
+}
+
+#login .signInForm input[type=text] {
+    width: 450px;
+    height: 60px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+    border: 5px solid #e9ddcb;
+
 }
