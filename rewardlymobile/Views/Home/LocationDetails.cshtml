@@ -5,59 +5,35 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>LocationDetails</h2>
+@section header {
+	<div id="header">
+		<a href="javascript:void(0);" id="btnMenu">
+			<img src="@Url.Content("~/Content/images/btn-main-menu.png")" width="24px" height="21px" />
+		</a>
+		<div class="details-title">@ViewBag.CompanyName</div>
+	</div>
+}
 
-<fieldset>
-	<legend>location</legend>
-
-	<div class="display-label">
-		 @Html.DisplayNameFor(model => model.venueId)
+<div id="details">
+	<div class="photo" style="background: url(@Model.locPicture) no-repeat center; background-size: 100%">
+		<img src="@ViewBag.CompanyLogo" width="82px" height="82px" />
+		<h1>@ViewBag.CompanyName</h1>
 	</div>
-	<div class="display-field">
-		@Html.DisplayFor(model => model.venueId)
+	<div class="content">
+		<span class="points">@ViewBag.MemberPoints pts</span>
+		<a href="javascript:checkin(@Model.locationId);" class="checkIn"><span>Check In</span></a>
+		<a href="@Url.Action("RewardCatalog","Home", new {id=Model.locationId})" class="rewards">Rewards</a>
+		<p>
+			<span>Address:</span>
+			@Html.DisplayFor(model => model.address)
+		</p>
+		<p>
+			<span>Phone:</span>
+			<a href="tel:@Html.DisplayFor(model => model.phone)">@Html.DisplayFor(model => model.phone)</a>
+		</p>
+		<p>
+			<span>Costs Roughly:</span>
+			$@Html.DisplayFor(model => model.pricePoint).00
+		</p>
 	</div>
-
-	<div class="display-label">
-		 @Html.DisplayNameFor(model => model.address)
-	</div>
-	<div class="display-field">
-		@Html.DisplayFor(model => model.address)
-	</div>
-
-	<div class="display-label">
-		 @Html.DisplayNameFor(model => model.address1)
-	</div>
-	<div class="display-field">
-		@Html.DisplayFor(model => model.address1)
-	</div>
-
-	<div class="display-label">
-		 @Html.DisplayNameFor(model => model.phone)
-	</div>
-	<div class="display-field">
-		@Html.DisplayFor(model => model.phone)
-	</div>
-
-	<div class="display-label">
-		 @Html.DisplayNameFor(model => model.locPicture)
-	</div>
-	<div class="display-field">
-		@Html.DisplayFor(model => model.locPicture)
-	</div>
-
-	<div class="display-label">
-		 @Html.DisplayNameFor(model => model.pricePoint)
-	</div>
-	<div class="display-field">
-		@Html.DisplayFor(model => model.pricePoint)
-	</div>
-</fieldset>
-<p>
-	<a href="javascript:checkin(@Model.locationId);">Checkin</a>
-</p>
-<p>
-	@Html.ActionLink("Rewards","RewardCatalog", new {id=Model.locationId})
-</p>
-<p>
-	@Html.ActionLink("Locations", "LocationsList", new { id=Model.companyId })
-</p>
+</div>

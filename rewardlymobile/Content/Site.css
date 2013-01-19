@@ -97,7 +97,7 @@ a, a:hover, a:visited { color: #6b0003; font-weight: bold; text-decoration: none
 
 /* Pages */
 
-/* Loging Page */
+/* Login Page */
 #login {
     width: 250px;
     height: 400px;
@@ -450,4 +450,174 @@ a, a:hover, a:visited { color: #6b0003; font-weight: bold; text-decoration: none
     position: relative;
     left: 20px;
     top: 35px;
+}
+
+/* Locations Page */
+#locations ul { 
+    width: 320px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#locations ul li {
+    width: 320px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    border-bottom: 2px solid #f6f0e3;
+}
+
+#locations ul li a {
+    width: 320px;
+    height: 100px;
+    display: block;
+}
+
+#locations ul li a > img {
+    margin: 10px;
+    float: left;
+}
+
+#locations ul li a .copy {
+    width: 240px;
+    height: 58px;
+    padding: 32px 0 10px 20px;
+    float: left;
+}
+
+#locations ul li a .copy span.name {
+    color: #da000e;
+    font-size: 20px;
+    font-weight: bold;
+}
+#locations ul li a .copy span.address {
+    color: #6b0003;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#locations ul li a .arrow {
+    width: 50px;
+    height: 100px;
+    float: right;
+    background-color: #fdf8ef;
+    border-bottom: 2px solid #fcfaf5;
+    position: relative;
+    top: -29px;
+}
+
+#locations ul li a .arrow img {
+    position: relative;
+    left: 20px;
+    top: 35px;
+}
+
+/* Location Detail Page */
+#header .details-title {
+    padding: 0 0 0 62px;
+    text-align: left;
+    line-height: 48px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6b0003;
+    -webkit-box-shadow: inset 0px -1px 0px 0px #fff;
+    box-shadow: inset 0px -1px 0px 0px #fff;
+}
+
+#details {
+
+}
+
+#details .photo img {
+    position: relative;
+    bottom: -40px;
+    left: 20px;
+}
+
+#details .photo h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    position: relative;
+    bottom: 20px;
+    left: 120px;
+}
+
+#details .content {
+    width: 320px;
+    height: 360px;
+    padding-top: 40px;
+    background-color: #fffdfa;
+}
+#details .content span.points {
+    width: 320px;
+    margin: 0 auto 26px auto;
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    color: #6b0003;
+    display: block;
+}
+
+#details .content a.checkIn {
+    width: 250px;
+    height: 34px;
+    margin: 0 auto 15px auto;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 34px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: -webkit-linear-gradient(top, rgba(251,62,74,1) 0%,rgba(218,0,14,1) 100%);
+    -webkit-box-shadow: 0px 2px 2px #d9d7d5;
+    box-shadow: 0px 2px 2px #d9d7d5;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+#details .content a.checkIn span {
+    width: 250px;
+    height: 34px;
+    display: block;
+    margin-right: 8px;
+    background: url(images/icon-checkin.png) no-repeat center;
+    background-size: 10px 15px;
+    background-position: 74px 9px;
+}
+
+#details .content a.rewards {
+    width: 250px;
+    height: 34px;
+    margin: 0 auto 15px auto;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 34px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: -webkit-linear-gradient(top, rgba(155,0,4,1) 0%,rgba(108,0,3,1) 100%);
+    -webkit-box-shadow: 0px 2px 2px #d9d7d5;
+    box-shadow: 0px 2px 2px #d9d7d5;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+#details .content p {
+    width: 150px;
+    margin: 10px 0 10px 65px;
+}
+
+#details .content p span {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    position: relative;
+    left: -29px;
+    display: block;
 }

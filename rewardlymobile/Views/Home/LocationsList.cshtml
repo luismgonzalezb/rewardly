@@ -5,20 +5,33 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>LocationsList</h2>
-	<ul>
 
-@foreach (var item in Model) {
-		<li>
-			@Html.DisplayFor(modelItem => item.companyId)
-			@Html.DisplayFor(modelItem => item.venueId)
-			@Html.DisplayFor(modelItem => item.address)
-			@Html.DisplayFor(modelItem => item.address1)
-			@Html.DisplayFor(modelItem => item.phone)
-			@Html.DisplayFor(modelItem => item.locPicture)
-			@Html.DisplayFor(modelItem => item.pricePoint)
-			<br />
-			@Html.ActionLink("Location Details", "LocationDetails", new { id=item.locationId })
-		</li>
+@section header {
+	<div id="header">
+		<a href="javascript:void(0);" id="btnMenu">
+			<img src="@Url.Content("~/Content/images/btn-main-menu.png")" width="24px" height="21px" />
+		</a>
+		<div class="logo"></div>
+		<a href="" id="btnAdd">
+			<img src="@Url.Content("~/Content/images/btn-add.png")" width="18px" height="19px" />
+		</a>
+	</div>
 }
-	</ul>
+<div id="locations">
+<ul id="list">
+	@foreach (var item in Model) { 
+	<li>
+		<a href="@Url.Action("LocationDetails", "Home", new { id=item.locationId })">
+			<div class="copy">
+				<span class="name">@Html.DisplayFor(modelItem => item.address)</span><br />
+				<span class="address">@Html.DisplayFor(modelItem => item.phone)</span>
+			</div>
+			<div class="arrow">
+				<img src="@Url.Content("~/Content/images/icon-arrow.png")" width="15px" height="30px" />
+			</div>
+		</a>
+	</li>
+	}
+</ul>
+
+	</div>

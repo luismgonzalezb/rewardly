@@ -68,6 +68,7 @@ namespace rewardly.Controllers
 					{ "CompanyId", id.ToString() } 
 				};
 			CompanyPoints company = client.Get<CompanyPoints>(parms);
+			ViewBag.CompanyName = company.companyName;
 			ViewBag.CompanyLogo = company.companyLogo;
 			ViewBag.MemberPoints = company.points;
 

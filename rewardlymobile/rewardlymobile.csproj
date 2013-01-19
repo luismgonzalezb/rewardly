@@ -218,6 +218,7 @@
     <Content Include="Content\images\icons-18-white.png" />
     <Content Include="Content\images\icons-36-black.png" />
     <Content Include="Content\images\icons-36-white.png" />
+    <Content Include="Content\images\loc-mcdowells.jpg" />
     <Content Include="Content\images\logo-register.png" />
     <Content Include="Content\images\logoLarge.png" />
     <Content Include="Content\images\logoSmall.png" />
