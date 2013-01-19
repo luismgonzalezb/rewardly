@@ -17,17 +17,26 @@ namespace rewardlyapi.Controllers
 
 		public IEnumerable<CompanyPoints> GetUserCompanyPoints(int id)
 		{
-			List<memberCompany> companies = (from cmp in db.memberCompanies where cmp.UserId == id select cmp).ToList();
-			List<CompanyPoints> result = (from cmp in db.companies
-										  join usrcmp in companies on cmp.companyId equals usrcmp.companyId
+			List<memberCompany> usrcompanies = (from cmp in db.memberCompanies where cmp.UserId == id select cmp).ToList();
+			int[] companyIds = usrcompanies.Select(x => x.companyId).ToArray();
+			List<company> companies = (from cmp in db.companies
+									   where companyIds.Contains(cmp.companyId)
+									   select cmp).ToList();
+			List<CompanyPoints> result = (from usr in usrcompanies
+										  join cmp in companies on usr.companyId equals cmp.companyId
 										  select new CompanyPoints
 										  {
 											  companyId = cmp.companyId,
 											  companyName = cmp.companyName,
 											  companyLogo = cmp.companyLogo,
-											  points = usrcmp.points
+											  points = usrcompanies.Find(x => x.companyId == cmp.companyId).points
 										  }).ToList();
 			return result;
+		}
+
+		public int GetPoints(int UserId, int CompanyId)
+		{
+			return 0;
 		}
 
 		// GET api/Members

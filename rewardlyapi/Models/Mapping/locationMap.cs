@@ -27,7 +27,7 @@ namespace rewardly.Models.Mapping
 			this.ToTable("locations");
 			this.Property(t => t.locationId).HasColumnName("locationId");
 			this.Property(t => t.companyId).HasColumnName("companyId");
-			this.Property(t => t.venueId).HasColumnName("cuisineId");
+			this.Property(t => t.venueId).HasColumnName("venueId");
 			this.Property(t => t.address).HasColumnName("address");
 			this.Property(t => t.address1).HasColumnName("address1");
 			this.Property(t => t.phone).HasColumnName("phone");

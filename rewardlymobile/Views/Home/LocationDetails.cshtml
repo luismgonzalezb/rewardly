@@ -1,58 +1,63 @@
 ﻿@model rewardly.Models.location
 
 @{
-    ViewBag.Title = "LocationDetails";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "LocationDetails";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>LocationDetails</h2>
 
 <fieldset>
-    <legend>location</legend>
+	<legend>location</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.venueId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.venueId)
-    </div>
+	<div class="display-label">
+		 @Html.DisplayNameFor(model => model.venueId)
+	</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.venueId)
+	</div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.address)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.address)
-    </div>
+	<div class="display-label">
+		 @Html.DisplayNameFor(model => model.address)
+	</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.address)
+	</div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.address1)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.address1)
-    </div>
+	<div class="display-label">
+		 @Html.DisplayNameFor(model => model.address1)
+	</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.address1)
+	</div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.phone)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.phone)
-    </div>
+	<div class="display-label">
+		 @Html.DisplayNameFor(model => model.phone)
+	</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.phone)
+	</div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.locPicture)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.locPicture)
-    </div>
+	<div class="display-label">
+		 @Html.DisplayNameFor(model => model.locPicture)
+	</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.locPicture)
+	</div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.pricePoint)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.pricePoint)
-    </div>
+	<div class="display-label">
+		 @Html.DisplayNameFor(model => model.pricePoint)
+	</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.pricePoint)
+	</div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.locationId }) |
-    @Html.ActionLink("Back to List", "Index")
+	<a href="javascript:checkin(@Model.locationId);">Checkin</a>
+</p>
+<p>
+	@Html.ActionLink("Rewards","RewardCatalog", new {id=Model.locationId})
+</p>
+<p>
+	@Html.ActionLink("Locations", "LocationsList", new { id=Model.companyId })
 </p>

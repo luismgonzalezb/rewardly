@@ -1,8 +1,24 @@
-﻿@model rewardly.Models.location
+﻿@model IEnumerable<rewardly.Models.location>
 
 @{
-    ViewBag.Title = "LocationsList";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "LocationsList";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>LocationsList</h2>
+	<ul>
+
+@foreach (var item in Model) {
+		<li>
+			@Html.DisplayFor(modelItem => item.companyId)
+			@Html.DisplayFor(modelItem => item.venueId)
+			@Html.DisplayFor(modelItem => item.address)
+			@Html.DisplayFor(modelItem => item.address1)
+			@Html.DisplayFor(modelItem => item.phone)
+			@Html.DisplayFor(modelItem => item.locPicture)
+			@Html.DisplayFor(modelItem => item.pricePoint)
+			<br />
+			@Html.ActionLink("Location Details", "LocationDetails", new { id=item.locationId })
+		</li>
+}
+	</ul>

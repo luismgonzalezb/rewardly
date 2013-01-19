@@ -24,9 +24,18 @@ namespace rewardly.Controllers
 			BaseClient client = new BaseClient(baseApiUrl, "Location", "GetCompanyLocations");
 			List<location> result = client.Get<List<location>>(id);
 
+
+			//client = new BaseClient(baseApiUrl, "Dreams", "GetDreamsUserLevel");
+			//NameValueCollection parms = new NameValueCollection() {
+			//		{ "id", ibo.IBONum }, 
+			//		{ "level", id.ToString() } 
+			//	};
+			//List<Dream> dreams = client.Get<List<Dream>>(parms);
+
 			client = new BaseClient(baseApiUrl, "Company", "Getcompany");
 			company company = client.Get<company>(id);
 			ViewBag.CompanyLogo = company.companyLogo;
+			//ViewBag.MemberPoints = company.points;
 
 			return View(result);
 		}
@@ -43,18 +52,13 @@ namespace rewardly.Controllers
 			return View(loc);
 		}
 
-		public ActionResult About()
+		public ActionResult RewardCatalog(int id)
 		{
-			ViewBag.Message = "Your app description page.";
+			BaseClient client = new BaseClient(baseApiUrl, "Rewards", "GetLocationCatalog");
+			List<catalog> result = client.Get<List<catalog>>(id);
 
-			return View();
+			return View(result);
 		}
 
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
-		}
 	}
 }
