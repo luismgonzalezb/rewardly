@@ -407,6 +407,47 @@ a, a:hover, a:visited { color: #6b0003; font-weight: bold; text-decoration: none
     border-bottom: 2px solid #f6f0e3;
 }
 
-#home ul li > img {
+#home ul li a {
+    width: 320px;
+    height: 100px;
+    display: block;
+}
 
+#home ul li a > img {
+    margin: 10px;
+    float: left;
+}
+
+#home ul li a .copy {
+    width: 160px;
+    height: 87px;
+    margin-top: 13px;
+    float: left;
+}
+
+#home ul li a .copy span.name {
+    color: #da000e;
+    font-size: 20px;
+    font-weight: bold;
+}
+#home ul li a .copy span.points {
+    color: #6b0003;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#home ul li a .arrow {
+    width: 50px;
+    height: 100px;
+    float: right;
+    background-color: #fdf8ef;
+    border-bottom: 2px solid #fcfaf5;
+    position: relative;
+    top: -29px;
+}
+
+#home ul li a .arrow img {
+    position: relative;
+    left: 20px;
+    top: 35px;
 }

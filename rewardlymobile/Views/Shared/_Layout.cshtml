@@ -13,13 +13,13 @@
     </head>
     <body>
         <div id="wrapper">
-            <div id="header">
+            
                 @if (IsSectionDefined("Header")) {
                     @RenderSection("Header")
                 } else {
                     @Html.Partial("_LoginPartial")
                 }
-            </div>
+            
             <div id="content">
                 @RenderBody()
             </div>
