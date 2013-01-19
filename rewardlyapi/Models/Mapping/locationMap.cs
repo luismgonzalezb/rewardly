@@ -10,6 +10,9 @@ namespace rewardly.Models.Mapping
 			this.HasKey(t => t.locationId);
 
 			// Properties
+			this.Property(t => t.companyId)
+				.IsRequired();
+
 			this.Property(t => t.address)
 				.IsRequired()
 				.HasMaxLength(150);
@@ -23,6 +26,7 @@ namespace rewardly.Models.Mapping
 			// Table & Column Mappings
 			this.ToTable("locations");
 			this.Property(t => t.locationId).HasColumnName("locationId");
+			this.Property(t => t.companyId).HasColumnName("companyId");
 			this.Property(t => t.venueId).HasColumnName("cuisineId");
 			this.Property(t => t.address).HasColumnName("address");
 			this.Property(t => t.address1).HasColumnName("address1");

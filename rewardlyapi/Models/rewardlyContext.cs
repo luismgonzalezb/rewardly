@@ -22,6 +22,7 @@ namespace rewardly.Models
 		public DbSet<locationGame> locationGames { get; set; }
 		public DbSet<location> locations { get; set; }
 		public DbSet<memberGame> memberGames { get; set; }
+		public DbSet<memberCompany> memberCompanies { get; set; }
 		public DbSet<memberRedemption> memberRedemptions { get; set; }
 		public DbSet<memberVisit> memberVisits { get; set; }
 		public DbSet<UserProfile> UserProfiles { get; set; }
@@ -38,6 +39,7 @@ namespace rewardly.Models
 			modelBuilder.Configurations.Add(new locationGameMap());
 			modelBuilder.Configurations.Add(new locationMap());
 			modelBuilder.Configurations.Add(new memberGameMap());
+			modelBuilder.Configurations.Add(new memberCompanyMap());
 			modelBuilder.Configurations.Add(new memberRedemptionMap());
 			modelBuilder.Configurations.Add(new memberVisitMap());
 			modelBuilder.Configurations.Add(new UserProfileMap());

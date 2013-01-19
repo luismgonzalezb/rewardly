@@ -31,7 +31,7 @@ namespace BusinessLMSWeb.Helpers
 			}
 		}
 
-		public T Get<T>(string id)
+		public T Get<T>(int id)
 		{
 			using (HttpClient httpClient = NewHttpClient())
 			{
@@ -62,7 +62,7 @@ namespace BusinessLMSWeb.Helpers
 			}
 		}
 
-		public string Put<T>(string id, T data)
+		public string Put<T>(int id, T data)
 		{
 			using (HttpClient httpClient = NewHttpClient())
 			{
@@ -74,7 +74,7 @@ namespace BusinessLMSWeb.Helpers
 			}
 		}
 
-		public string Delete(string id)
+		public string Delete(int id)
 		{
 			using (HttpClient httpClient = NewHttpClient())
 			{

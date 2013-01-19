@@ -1,13 +1,18 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using BusinessLMSWeb.Helpers;
+using rewardly.ViewModels;
 
 namespace rewardly.Controllers
 {
 	[Authorize]
-	public class HomeController : Controller
+	public class HomeController : BaseController
 	{
 		public ActionResult Index()
 		{
-			ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+
+			BaseClient client = new BaseClient(baseApiUrl, "Members", "GetUserCompanyPoints");
+			List<CompanyPoints> result = client.Get<List<CompanyPoints>>(UserId);
 
 			return View();
 		}
