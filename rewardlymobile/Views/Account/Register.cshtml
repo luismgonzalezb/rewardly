@@ -9,7 +9,6 @@
 </p>
 
 @using (Html.BeginForm()) {
-    @Html.ValidationSummary()
 
     <ul data-role="listview" data-inset="true">
         <li data-role="list-divider">Details</li>
@@ -17,11 +16,6 @@
         <li data-role="fieldcontain">
             @Html.LabelFor(m => m.UserName)
             @Html.TextBoxFor(m => m.UserName)            
-        </li>
-
-        <li data-role="fieldcontain">
-            @Html.LabelFor(m => m.Email)
-            @Html.TextBoxFor(m => m.Email)            
         </li>
 
         <li data-role="fieldcontain">
@@ -38,8 +32,4 @@
             <input type="submit" value="Register" />
         </li>
     </ul>
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }
