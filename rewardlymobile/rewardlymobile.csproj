@@ -212,6 +212,7 @@
     <Content Include="Content\images\btn-add.png" />
     <Content Include="Content\images\btn-main-menu.png" />
     <Content Include="Content\images\icon-arrow.png" />
+    <Content Include="Content\images\icon-back.png" />
     <Content Include="Content\images\icon-checkin.png" />
     <Content Include="Content\images\icon-promos.png" />
     <Content Include="Content\images\icons-18-black.png" />

@@ -5,25 +5,45 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SearchCompany</h2>
+@section header {
+	<div id="header">
+		<a href="javascript:history.back();" id="btnMenu">
+			<img src="@Url.Content("~/Content/images/icon-back.png")" width="30px" height="28px" />
+		</a>
+		<div class="details-title">Search 72758</div>
+	</div>
+}
+<div id="redeem">
 
 @using (Html.BeginForm()) {
-
-	@Html.DropDownList("venueId",(SelectList)ViewBag.Venues)
+	<h2>Maxmimum You Want to Spend</h2>
+	<div class="prizePoint">
 	@Html.TextBox("prizePoint")
+	</div>
+	<h2>Type of Venue</h2>
+	<div class="venues">
+    <span></span>
+	@Html.DropDownList("venueId",(SelectList)ViewBag.Venues)
+	</div>
 	<div class="submit">
+
 		<input type="submit" value="Refresh" />
 	</div>
 }
 
-<ul>
-
-@foreach (var item in Model) {
+<ul id="list">
+	@foreach (var item in Model) {
 	<li>
-		@Html.DisplayFor(modelItem => item.companyName)
-		@Html.DisplayFor(modelItem => item.companyPhone)
-		@Html.DisplayFor(modelItem => item.companyLogo)
+	    <a href="@Url.Action("CompanyAdd", "Home", new { id=item.companyId })">
+		<img src="@item.companyLogo" width="82px" height="82px" />
+		<div class="copy">
+			<span class="name">@item.companyName</span><br />
+			<span>@item.companyPhone</span>
+		</div>
+		</a>
 	</li>
-}
+	}
+    
 </ul>
+</div>
 
