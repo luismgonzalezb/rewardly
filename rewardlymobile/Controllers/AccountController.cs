@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
+using rewardly.Controllers;
 using rewardly.Filters;
 using rewardly.Models;
 using WebMatrix.WebData;
@@ -14,7 +15,7 @@ namespace rewardlyadmin.Controllers
 {
 	[Authorize]
 	[InitializeSimpleMembership]
-	public class AccountController : Controller
+	public class AccountController : BaseController
 	{
 		//
 		// GET: /Account/Login
@@ -65,10 +66,10 @@ namespace rewardlyadmin.Controllers
 		[AllowAnonymous]
 		public ActionResult Register()
 		{
-            RegisterModel model = new RegisterModel();
-            model.UserName = "email";
-            model.Password = "password";
-            model.ConfirmPassword = "confirm password";
+			RegisterModel model = new RegisterModel();
+			model.UserName = "email";
+			model.Password = "password";
+			model.ConfirmPassword = "confirm password";
 			return View(model);
 		}
 
