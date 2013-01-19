@@ -1,0 +1,58 @@
+﻿@model rewardly.Models.location
+
+@{
+    ViewBag.Title = "LocationDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LocationDetails</h2>
+
+<fieldset>
+    <legend>location</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.venueId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.venueId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.address1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.address1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.phone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.locPicture)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.locPicture)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.pricePoint)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pricePoint)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.locationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

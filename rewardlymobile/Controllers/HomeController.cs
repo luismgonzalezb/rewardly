@@ -19,13 +19,28 @@ namespace rewardly.Controllers
 
 		public ActionResult LocationsList(int id)
 		{
+
+			//TODO: SEND GEO DATA TO API OR SOLVE IT HERE
 			BaseClient client = new BaseClient(baseApiUrl, "Location", "GetCompanyLocations");
-			List<CompanyPoints> result = client.Get<List<CompanyPoints>>(id);
+			List<location> result = client.Get<List<location>>(id);
 
 			client = new BaseClient(baseApiUrl, "Company", "Getcompany");
 			company company = client.Get<company>(id);
+			ViewBag.CompanyLogo = company.companyLogo;
 
 			return View(result);
+		}
+
+		public ActionResult LocationDetails(int id)
+		{
+			BaseClient client = new BaseClient(baseApiUrl, "Location", "Getlocation");
+			location loc = client.Get<location>(id);
+
+			client = new BaseClient(baseApiUrl, "Company", "Getcompany");
+			company company = client.Get<company>(loc.companyId);
+			ViewBag.CompanyLogo = company.companyLogo;
+
+			return View(loc);
 		}
 
 		public ActionResult About()
