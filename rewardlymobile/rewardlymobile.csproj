@@ -334,6 +334,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Home\LocationsList.cshtml" />
+    <Content Include="Views\Home\LocationDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

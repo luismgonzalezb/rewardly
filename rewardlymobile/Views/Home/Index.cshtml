@@ -3,13 +3,31 @@
 @{
 	ViewBag.Title = "Home Page";
 }
-
-<h2>@ViewBag.Message</h2>
-
-@foreach (var item in Model) {
-
-	<ul>
-		<li>@Html.ActionLink("Locations", "LocationsList", new { id=item.companyId })</li>
-	</ul>
-	
+@section header {
+    <a href="javascript:void(0);" id="btnMenu">
+        <img src="@Url.Content("~/Content/images/btn-main-menu.png")" width="24px" height="21px" />
+    </a>
+    <div class="logo"></div>
+    <a href="" id="btnAdd">
+        <img src="@Url.Content("~/Content/images/btn-add.png")" width="18px" height="19px" />
+    </a>
 }
+<div id="home">
+<ul id="list">
+    @foreach (var item in Model) { 
+    <li>
+        <a href="@Html.ActionLink("Locations", "LocationsList", new { id=item.companyId })">
+            <img src="@item.companyLogo" width="82px" height="82px" />
+            <div class="copy">
+                <span class="name">@item.companyName</span>
+                <span class="points">@item.points</span>
+            </div>
+            <div class="arrow">
+                <img src="@Url.Content("~/Content/images/icon-arrow.png")" width="15px" height="30px" />
+            </div>
+        </a>
+    </li>
+    }
+</ul>
+
+    </div>
