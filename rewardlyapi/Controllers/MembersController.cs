@@ -34,9 +34,18 @@ namespace rewardlyapi.Controllers
 			return result;
 		}
 
-		public int GetPoints(int UserId, int CompanyId)
+		public CompanyPoints GetPoints(int UserId, int CompanyId)
 		{
-			return 0;
+			company cmp = db.companies.Find(CompanyId);
+			memberCompany mc = (from r in db.memberCompanies where r.companyId == CompanyId && r.UserId == UserId select r).FirstOrDefault();
+			CompanyPoints cp = new CompanyPoints
+			{
+				companyId = cmp.companyId,
+				companyName = cmp.companyName,
+				companyLogo = cmp.companyLogo,
+				points = mc.points
+			};
+			return cp;
 		}
 
 		// GET api/Members

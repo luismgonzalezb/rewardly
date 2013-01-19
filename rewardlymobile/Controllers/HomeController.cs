@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Web.Mvc;
 using BusinessLMSWeb.Helpers;
 using rewardly.Models;
@@ -24,18 +25,14 @@ namespace rewardly.Controllers
 			BaseClient client = new BaseClient(baseApiUrl, "Location", "GetCompanyLocations");
 			List<location> result = client.Get<List<location>>(id);
 
-
-			//client = new BaseClient(baseApiUrl, "Dreams", "GetDreamsUserLevel");
-			//NameValueCollection parms = new NameValueCollection() {
-			//		{ "id", ibo.IBONum }, 
-			//		{ "level", id.ToString() } 
-			//	};
-			//List<Dream> dreams = client.Get<List<Dream>>(parms);
-
-			client = new BaseClient(baseApiUrl, "Company", "Getcompany");
-			company company = client.Get<company>(id);
+			client = new BaseClient(baseApiUrl, "Members", "GetPoints");
+			NameValueCollection parms = new NameValueCollection() {
+					{ "UserId", WebSecurity.CurrentUserId.ToString() }, 
+					{ "CompanyId", id.ToString() } 
+				};
+			CompanyPoints company = client.Get<CompanyPoints>(parms);
 			ViewBag.CompanyLogo = company.companyLogo;
-			//ViewBag.MemberPoints = company.points;
+			ViewBag.MemberPoints = company.points;
 
 			return View(result);
 		}
@@ -45,9 +42,14 @@ namespace rewardly.Controllers
 			BaseClient client = new BaseClient(baseApiUrl, "Location", "Getlocation");
 			location loc = client.Get<location>(id);
 
-			client = new BaseClient(baseApiUrl, "Company", "Getcompany");
-			company company = client.Get<company>(loc.companyId);
+			client = new BaseClient(baseApiUrl, "Members", "GetPoints");
+			NameValueCollection parms = new NameValueCollection() {
+					{ "UserId", WebSecurity.CurrentUserId.ToString() }, 
+					{ "CompanyId", id.ToString() } 
+				};
+			CompanyPoints company = client.Get<CompanyPoints>(parms);
 			ViewBag.CompanyLogo = company.companyLogo;
+			ViewBag.MemberPoints = company.points;
 
 			return View(loc);
 		}
@@ -56,6 +58,16 @@ namespace rewardly.Controllers
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Rewards", "GetLocationCatalog");
 			List<catalog> result = client.Get<List<catalog>>(id);
+
+			client = new BaseClient(baseApiUrl, "Members", "GetPoints");
+			NameValueCollection parms = new NameValueCollection() {
+					{ "UserId", WebSecurity.CurrentUserId.ToString() }, 
+					{ "CompanyId", id.ToString() } 
+				};
+			CompanyPoints company = client.Get<CompanyPoints>(parms);
+			ViewBag.CompanyLogo = company.companyLogo;
+			ViewBag.MemberPoints = company.points;
+
 
 			return View(result);
 		}

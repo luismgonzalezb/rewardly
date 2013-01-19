@@ -1,21 +1,23 @@
 ﻿@model IEnumerable<rewardly.Models.catalog>
 
 @{
-    ViewBag.Title = "RewardCatalog";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "RewardCatalog";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>RewardCatalog</h2>
 <ul>
 
 @foreach (var item in Model) {
-    <li>
-        @Html.DisplayFor(modelItem => item.locationId)
-        @Html.DisplayFor(modelItem => item.prizeDescription)
-        @Html.DisplayFor(modelItem => item.points)
+	<li>
+		@Html.DisplayFor(modelItem => item.locationId)
+		@Html.DisplayFor(modelItem => item.prizeDescription)
+		@Html.DisplayFor(modelItem => item.points)
 
+		@if ((int)ViewBag.MemberPoints < item.points) {
+			<p>YOU CAN'T GET IT</p>
+		}
 
-
-    </li>
+	</li>
 }
 </ul>

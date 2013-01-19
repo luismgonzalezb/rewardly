@@ -335,6 +335,7 @@
     </Content>
     <Content Include="Views\Home\LocationsList.cshtml" />
     <Content Include="Views\Home\LocationDetails.cshtml" />
+    <Content Include="Views\Home\RewardCatalog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

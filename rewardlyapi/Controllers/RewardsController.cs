@@ -16,7 +16,7 @@ namespace rewardlyapi.Controllers
 
 		public IEnumerable<catalog> GetLocationCatalog(int id)
 		{
-			List<catalog> rewards = (from prize in db.catalogs where prize.locationId == id select prize).ToList();
+			List<catalog> rewards = (from prize in db.catalogs where prize.locationId == id orderby prize.points select prize).ToList();
 			return rewards;
 		}
 
