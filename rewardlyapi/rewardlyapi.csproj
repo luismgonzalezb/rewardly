@@ -128,14 +128,38 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\catalog.cs" />
+    <Compile Include="Models\company.cs" />
+    <Compile Include="Models\venue.cs" />
+    <Compile Include="Models\game.cs" />
+    <Compile Include="Models\location.cs" />
+    <Compile Include="Models\locationGame.cs" />
+    <Compile Include="Models\Mapping\catalogMap.cs" />
+    <Compile Include="Models\Mapping\companyMap.cs" />
+    <Compile Include="Models\Mapping\venuesMap.cs" />
+    <Compile Include="Models\Mapping\gameMap.cs" />
+    <Compile Include="Models\Mapping\locationGameMap.cs" />
+    <Compile Include="Models\Mapping\locationMap.cs" />
+    <Compile Include="Models\Mapping\memberGameMap.cs" />
+    <Compile Include="Models\Mapping\memberRedemptionMap.cs" />
+    <Compile Include="Models\Mapping\memberVisitMap.cs" />
+    <Compile Include="Models\Mapping\UserProfileMap.cs" />
+    <Compile Include="Models\Mapping\webpages_MembershipMap.cs" />
+    <Compile Include="Models\Mapping\webpages_OAuthMembershipMap.cs" />
+    <Compile Include="Models\Mapping\webpages_RolesMap.cs" />
+    <Compile Include="Models\memberGame.cs" />
+    <Compile Include="Models\memberRedemption.cs" />
+    <Compile Include="Models\memberVisit.cs" />
+    <Compile Include="Models\rewardlyContext.cs" />
+    <Compile Include="Models\UserProfile.cs" />
+    <Compile Include="Models\webpages_Membership.cs" />
+    <Compile Include="Models\webpages_OAuthMembership.cs" />
+    <Compile Include="Models\webpages_Roles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
-    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
-    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -164,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

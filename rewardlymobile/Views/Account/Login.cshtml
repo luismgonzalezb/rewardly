@@ -1,7 +1,7 @@
 ﻿@model rewardly.Models.LoginModel
 
 @{
-    ViewBag.Title = "Log in";
+	ViewBag.Title = "Log in";
 }
 
 <div id="login">
@@ -10,26 +10,25 @@
 @using (Html.BeginForm()) {
 
 <div class="signInForm">
-    <div class="userName">
-        @Html.TextBoxFor(m => m.UserName)            
-    </div>
-    <div class="passWord">
-        @Html.TextBoxFor(m => m.Password)            
-    </div>
-    <div class="submit">
-        <input type="submit" value="Login" />
-        <a href="javascript:void(0);" class="forgot">Forgot Password</a>
-    </div>
+	<div class="userName">
+		@Html.TextBoxFor(m => m.UserName)            
+	</div>
+	<div class="passWord">
+		@Html.TextBoxFor(m => m.Password)            
+	</div>
+	<div class="submit">
+		<input type="submit" value="Login" />
+		<a href="javascript:void(0);" class="forgot">Forgot Password</a>
+	</div>
 </div>
 }
 
 <div class="signUpBtns">
-    <a href="@Url.Action("Register","Account")" class="signUp">Create Account</a>
-    <a href="" class="fbLogin">Login with Facebook</a>
-</div>
+	<a href="@Url.Action("Register","Account")" class="signUp">Create Account</a>
+	@Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
 
 </div>
 
 @section Scripts {
-    
+	
 }

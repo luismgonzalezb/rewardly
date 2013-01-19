@@ -3,8 +3,8 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
+using rewardly.Models;
 using WebMatrix.WebData;
-using rewardlyadmin.Models;
 
 namespace rewardlyadmin.Filters
 {
@@ -38,7 +38,7 @@ namespace rewardlyadmin.Filters
 						}
 					}
 
-					WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+					WebSecurity.InitializeDatabaseConnection("rewardlydb", "UserProfile", "UserId", "UserName", autoCreateTables: true);
 				}
 				catch (Exception ex)
 				{
