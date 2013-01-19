@@ -7,5 +7,6 @@ namespace rewardly.Models
 		public int UserId { get; set; }
 		public int locationId { get; set; }
 		public System.DateTime datetime { get; set; }
+		public int queued { get; set; }
 	}
 }

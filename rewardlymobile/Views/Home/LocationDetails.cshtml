@@ -42,7 +42,7 @@
 	<script type="text/javascript">
 		function checkin(locId)
 		{
-			$.post("/CheckinAjax", new { locationId : locId }, function (data) {
+			$.post("/Home/CheckinAjax", { id: locId }, function (data) {
 				if (data.success == true) {
 					alert("Thank you for checking in");
 				} else {

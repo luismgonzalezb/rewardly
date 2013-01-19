@@ -69,6 +69,23 @@ namespace rewardlyapi.Controllers
 			}
 		}
 
+		public HttpResponseMessage PostMemberCompany(memberCompany membercompany)
+		{
+			if (ModelState.IsValid)
+			{
+				db.memberCompanies.Add(membercompany);
+				db.SaveChanges();
+
+				HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, membercompany);
+				response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = membercompany.memberCompanyId }));
+				return response;
+			}
+			else
+			{
+				return Request.CreateResponse(HttpStatusCode.BadRequest);
+			}
+		}
+
 		// POST api/Company
 		public HttpResponseMessage Postcompany(company company)
 		{

@@ -62,6 +62,23 @@ namespace rewardlyapi.Controllers
 			}
 		}
 
+		public HttpResponseMessage PostCheckin(memberVisit visit)
+		{
+			if (ModelState.IsValid)
+			{
+				db.memberVisits.Add(visit);
+				db.SaveChanges();
+
+				HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, visit);
+				response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = visit.memberVisitId }));
+				return response;
+			}
+			else
+			{
+				return Request.CreateResponse(HttpStatusCode.BadRequest);
+			}
+		}
+
 		// POST api/Rewards
 		public HttpResponseMessage Postcatalog(catalog catalog)
 		{

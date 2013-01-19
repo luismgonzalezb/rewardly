@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Web.Mvc;
 using BusinessLMSWeb.Helpers;
@@ -78,7 +79,6 @@ namespace rewardly.Controllers
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Rewards", "GetLocationCatalog");
 			List<catalog> result = client.Get<List<catalog>>(id);
-
 			client = new BaseClient(baseApiUrl, "Members", "GetPoints");
 			NameValueCollection parms = new NameValueCollection() {
 					{ "UserId", WebSecurity.CurrentUserId.ToString() }, 
@@ -87,12 +87,38 @@ namespace rewardly.Controllers
 			CompanyPoints company = client.Get<CompanyPoints>(parms);
 			ViewBag.CompanyLogo = company.companyLogo;
 			ViewBag.MemberPoints = company.points;
-
-
 			return View(result);
 		}
 
+		public ActionResult CompanyAdd(int id)
+		{
+			memberCompany addcompany = new memberCompany();
+			addcompany.companyId = id;
+			addcompany.UserId = WebSecurity.CurrentUserId;
+			addcompany.points = 200;
+			BaseClient client = new BaseClient(baseApiUrl, "Company", "PostMemberCompany");
+			string result = client.Post<memberCompany>(addcompany);
+			return RedirectToAction("index");
+		}
 
+		[HttpPost]
+		public ActionResult CheckinAjax(int id)
+		{
+			try
+			{
+				memberVisit visit = new memberVisit();
+				visit.locationId = id;
+				visit.UserId = WebSecurity.CurrentUserId;
+				visit.datetime = DateTime.Now;
+				BaseClient client = new BaseClient(baseApiUrl, "Rewards", "PostCheckin");
+				string result = client.Post<memberVisit>(visit);
+				return Json(new { success = true });
+			}
+			catch
+			{
+				return Json(new { success = false });
+			}
+		}
 
 	}
 }
