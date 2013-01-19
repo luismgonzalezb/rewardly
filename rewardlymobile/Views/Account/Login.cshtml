@@ -5,7 +5,7 @@
 }
 
 @section Header {
-    @Html.ActionLink("Cancel", "Index", "Home", null, new { data_icon = "arrow-l", data_rel = "back" })
+    @Html.ActionLink("Cancel", "Index", "Home")
     <h1>@ViewBag.Title</h1>
 }
 
@@ -14,9 +14,8 @@
 </p>
 
 @using (Html.BeginForm()) {
-    @Html.ValidationSummary()
 
-    <ul data-role="listview" data-inset="true">
+    <ul>
         <li data-role="list-divider">Details</li>
 
         <li data-role="fieldcontain">
@@ -40,6 +39,10 @@
     </ul>
 }
 
+<div id="fbLogin">
+    FaceBook Thing
+</div>
+
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+
 }

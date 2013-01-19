@@ -72,3 +72,18 @@ a:hover { color: #036; }
    ||                                              ||
     \\ ========================================== //
 */
+/* 
+    Retina: 640 x 1136
+    Web Dimensionsd: 320 x 548 
+*/
+body
+{
+    margin: 0;
+    padding: 0;
+}
+#wrapper
+{
+    width: 320px;
+    margin: 0 auto;
+    padding: 0;
+}
