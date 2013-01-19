@@ -44,7 +44,8 @@ namespace BusinessLMSWeb.Helpers
 		{
 			using (HttpClient httpClient = NewHttpClient())
 			{
-				HttpResponseMessage response = httpClient.GetAsync(String.Concat(_endpoint, ToQueryString(parms))).Result;
+				String urlRequest = String.Concat(_endpoint, ToQueryString(parms));
+				HttpResponseMessage response = httpClient.GetAsync(urlRequest).Result;
 				return JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
 			}
 		}

@@ -18,6 +18,25 @@ namespace rewardly.Controllers
 			return View(result);
 		}
 
+		public ActionResult SearchCompany()
+		{
+			/* SET DROPDOWN LISTS */
+			BaseClient client = new BaseClient(baseApiUrl, "Location", "GetVenues");
+			List<venue> venues = client.Get<List<venue>>();
+			SelectList sl = new SelectList(venues, "venueId", "name");
+			ViewBag.Venues = sl;
+
+			/*GET THE SEARCH*/
+			client = new BaseClient(baseApiUrl, "Company", "GetSearchCompanies");
+			NameValueCollection parms = new NameValueCollection() {
+					{ "venueId", "1" }, 
+					{ "prizePoint", "5000" } 
+				};
+			List<company> companies = client.Get<List<company>>(parms);
+
+			return View(companies);
+		}
+
 		public ActionResult LocationsList(int id)
 		{
 
@@ -71,6 +90,8 @@ namespace rewardly.Controllers
 
 			return View(result);
 		}
+
+
 
 	}
 }

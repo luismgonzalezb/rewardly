@@ -1,108 +1,132 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 using rewardly.Models;
 
 namespace rewardlyapi.Controllers
 {
-    public class CompanyController : ApiController
-    {
-        private rewardlyContext db = new rewardlyContext();
+	public class CompanyController : ApiController
+	{
+		private rewardlyContext db = new rewardlyContext();
 
-        // GET api/Company
-        public IEnumerable<company> Getcompanies()
-        {
-            return db.companies.AsEnumerable();
-        }
+		// GET api/Company
+		public IEnumerable<company> Getcompanies()
+		{
+			return db.companies.AsEnumerable();
+		}
 
-        // GET api/Company/5
-        public company Getcompany(int id)
-        {
-            company company = db.companies.Find(id);
-            if (company == null)
-            {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
-            }
+		public IEnumerable<company> GetSearchCompanies(int venueId, int prizePoint)
+		{
 
-            return company;
-        }
+			//int[] companyIds = (from loc in db.locations
+			//					where loc.venueId == venueId && loc.pricePoint < prizePoint
+			//					group loc by loc.locationId).Select(x => x.First());
+			List<company> companies = new List<company>();
+			return companies;
+		}
 
-        // PUT api/Company/5
-        public HttpResponseMessage Putcompany(int id, company company)
-        {
-            if (ModelState.IsValid && id == company.companyId)
-            {
-                db.Entry(company).State = EntityState.Modified;
+		// GET api/Company/5
+		public company Getcompany(int id)
+		{
+			company company = db.companies.Find(id);
+			if (company == null)
+			{
+				throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+			}
 
-                try
-                {
-                    db.SaveChanges();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
-                }
+			return company;
+		}
 
-                return Request.CreateResponse(HttpStatusCode.OK);
-            }
-            else
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
-            }
-        }
+		// PUT api/Company/5
+		public HttpResponseMessage Putcompany(int id, company company)
+		{
+			if (ModelState.IsValid && id == company.companyId)
+			{
+				db.Entry(company).State = EntityState.Modified;
 
-        // POST api/Company
-        public HttpResponseMessage Postcompany(company company)
-        {
-            if (ModelState.IsValid)
-            {
-                db.companies.Add(company);
-                db.SaveChanges();
+				try
+				{
+					db.SaveChanges();
+				}
+				catch (DbUpdateConcurrencyException)
+				{
+					return Request.CreateResponse(HttpStatusCode.NotFound);
+				}
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, company);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = company.companyId }));
-                return response;
-            }
-            else
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
-            }
-        }
+				return Request.CreateResponse(HttpStatusCode.OK);
+			}
+			else
+			{
+				return Request.CreateResponse(HttpStatusCode.BadRequest);
+			}
+		}
 
-        // DELETE api/Company/5
-        public HttpResponseMessage Deletecompany(int id)
-        {
-            company company = db.companies.Find(id);
-            if (company == null)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-            }
+		// POST api/Company
+		public HttpResponseMessage Postcompany(company company)
+		{
+			if (ModelState.IsValid)
+			{
+				db.companies.Add(company);
+				db.SaveChanges();
 
-            db.companies.Remove(company);
+				HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, company);
+				response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = company.companyId }));
+				return response;
+			}
+			else
+			{
+				return Request.CreateResponse(HttpStatusCode.BadRequest);
+			}
+		}
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-            }
+		// DELETE api/Company/5
+		public HttpResponseMessage Deletecompany(int id)
+		{
+			company company = db.companies.Find(id);
+			if (company == null)
+			{
+				return Request.CreateResponse(HttpStatusCode.NotFound);
+			}
 
-            return Request.CreateResponse(HttpStatusCode.OK, company);
-        }
+			db.companies.Remove(company);
 
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
-    }
+			try
+			{
+				db.SaveChanges();
+			}
+			catch (DbUpdateConcurrencyException)
+			{
+				return Request.CreateResponse(HttpStatusCode.NotFound);
+			}
+
+			return Request.CreateResponse(HttpStatusCode.OK, company);
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			db.Dispose();
+			base.Dispose(disposing);
+		}
+
+		public static IEnumerable<TSource> DistinctBy<TSource, TKey>
+			(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+		{
+			HashSet<TKey> seenKeys = new HashSet<TKey>();
+			foreach (TSource element in source)
+			{
+				if (seenKeys.Add(keySelector(element)))
+				{
+					yield return element;
+				}
+			}
+		}
+
+	}
+
+
 }

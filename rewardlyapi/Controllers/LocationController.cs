@@ -20,6 +20,11 @@ namespace rewardlyapi.Controllers
 			return locations;
 		}
 
+		public IEnumerable<venue> GetVenues()
+		{
+			return db.venues.AsEnumerable();
+		}
+
 		// GET api/Location
 		public IEnumerable<location> Getlocations()
 		{

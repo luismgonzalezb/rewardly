@@ -9,7 +9,7 @@
 			<img src="@Url.Content("~/Content/images/btn-main-menu.png")" width="24px" height="21px" />
 		</a>
 		<div class="logo"></div>
-		<a href="" id="btnAdd">
+		<a href="@Url.Action("SearchCompany")" id="btnAdd">
 			<img src="@Url.Content("~/Content/images/btn-add.png")" width="18px" height="19px" />
 		</a>
 	</div>
@@ -18,7 +18,7 @@
 <ul id="list">
 	@foreach (var item in Model) { 
 	<li>
-		<a href="@Url.Action("Locations", "LocationsList", new { id=item.companyId })">
+		<a href="@Url.Action("LocationsList", new { id=item.companyId })">
 			<img src="@item.companyLogo" width="82px" height="82px" />
 			<div class="copy">
 				<span class="name">@item.companyName</span><br />
