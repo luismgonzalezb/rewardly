@@ -81,6 +81,9 @@ body
     padding: 0;
     font: 14px/16px Helvetica, Arial, sans;
 }
+
+a, a:hover, a:visited { color: #6b0003; font-weight: bold; text-decoration: none; }
+ 
 #wrapper
 {
     width: 320px;
@@ -190,8 +193,24 @@ body
     display: block;
 }
 
-#login .signUpBtns .fbLogin {
+#login .signUpBtns button.fbLogin {
+    width: 250px;
+    height: 34px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 34px;
+    border: none;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
     background: -webkit-linear-gradient(top, rgba(100,128,183,1) 0%,rgba(63,93,160,1) 100%); 
+    -webkit-box-shadow: 0px 2px 2px #d9d7d5;
+    box-shadow: 0px 2px 2px #d9d7d5;
+    text-decoration: none;
+    text-align: center;
+    display: block;
 }
 
 /* Create Account Page */
@@ -281,4 +300,28 @@ body
     box-shadow: 0px 2px 2px #d9d7d5;
     display: block;
     float: right;
+}
+
+#register .signUpForm .submitConfirm {
+    width: 250px;
+    height: 36px;
+    margin: 20px auto;
+    padding-bottom: 70px;
+}
+
+#register .signUpForm .submitConfirm input[type=submit] {
+    width: 250px;
+    height: 34px;
+    margin: 0 10px 0 0;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 34px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: -webkit-linear-gradient(top, rgba(251,62,74,1) 0%,rgba(218,0,14,1) 100%);
+    -webkit-box-shadow: 0px 2px 2px #d9d7d5;
+    box-shadow: 0px 2px 2px #d9d7d5;
 }

@@ -2,17 +2,15 @@
     ViewBag.Title = "Login Failure";
 }
 
-<div class="metro-container-400">
-
-    <div class="title" style="margin-bottom:40px;">
+<div id="register">
+    <div class="logo"></div>
         <h1>@ViewBag.Title.</h1>
-    </div>
-    <p>
-        We were not able to get your information from Facebook or register on our sytem
+    <p style="text-align: center; margin-bottom: 20px;">
+        We were not able to get your information from Facebook or register on our sytem.
     </p>
-    <div class="metro-align-right" style="margin-top:20px;">
+    <p style="text-align: center;">
         Please try again, Login @Html.ActionLink("Here", "Login")
-    </div>
+    </p>
 
 
 </div>
