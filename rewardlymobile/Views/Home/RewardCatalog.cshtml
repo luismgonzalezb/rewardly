@@ -30,10 +30,33 @@
 			}
 			else
 			{
-				<a href="javascript:redem(@item.catalogId)" class="active">Redeem</a>
+				<a href="javascript:redeem('@item.catalogId', '@item.prizePicture', '@item.prizeDescription')" class="active">Redeem</a>
 			}
 		</div>
 	</li>
 	}
 </ul>
 </div>
+
+<script type="text/javascript">
+	FB.init({ appId: "321195794657335", status: true, cookie: true });
+
+	function redeem(catId, photo, desc) {
+
+		// calling the API ...
+		var obj = {
+			method: 'feed',
+			redirect_uri: 'http://rewardlymobile.azurewebsites.net',
+			link: 'http://rewardlymobile.azurewebsites.net',
+			picture: 'http://rewardlymobile.azurewebsites.net' + photo,
+			name: 'I redeemed a ' + desc + ' from McDowells!',
+			description: ''
+		};
+
+		function callback(response) {
+			window.location('http://rewardlymobile.azurewebsites.net');
+		}
+
+		FB.ui(obj, callback);
+	}
+</script>
