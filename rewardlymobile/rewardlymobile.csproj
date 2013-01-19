@@ -222,6 +222,8 @@
     <Content Include="Content\images\logo-register.png" />
     <Content Include="Content\images\logoLarge.png" />
     <Content Include="Content\images\logoSmall.png" />
+    <Content Include="Content\images\prize-big-mick.jpg" />
+    <Content Include="Content\images\prize-free-meal.jpg" />
     <Content Include="Content\images\thumb-bushwood.png" />
     <Content Include="Content\images\thumb-chotchkies.png" />
     <Content Include="Content\images\thumb-mcdowells.png" />

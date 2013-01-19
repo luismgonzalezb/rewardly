@@ -3,25 +3,38 @@
 @{
 	ViewBag.Title = "RewardCatalog";
 	Layout = "~/Views/Shared/_Layout.cshtml";
+	int myPoints =(int)ViewBag.MemberPoints;
 }
-
-<h2>RewardCatalog</h2>
-<ul>
-
-@foreach (var item in Model) {
+@section header {
+	<div id="header">
+		<a href="javascript:void(0);" id="btnMenu">
+			<img src="@Url.Content("~/Content/images/btn-main-menu.png")" width="24px" height="21px" />
+		</a>
+		<div class="logo"></div>
+		<a href="@Url.Action("SearchCompany")" id="btnAdd">
+			<img src="@Url.Content("~/Content/images/btn-add.png")" width="18px" height="19px" />
+		</a>
+	</div>
+}
+<div id="redeem">
+<ul id="list">
+	@foreach (var item in Model) { 
 	<li>
-		@Html.DisplayFor(modelItem => item.locationId)
-		@Html.DisplayFor(modelItem => item.prizeDescription)
-		@Html.DisplayFor(modelItem => item.points)
-
-		@if ((int)ViewBag.MemberPoints < item.points) {
-			<p>YOU CAN'T GET IT</p>
-		}
-		else
-		{
-			<a href="javascript:redem(@item.catalogId)">GET MEEEEEE !!!</a>
-		}
-
+		<img src="@item.prizePicture" width="82px" height="82px" />
+		<div class="copy">
+			<span class="name">@item.prizeDescription</span><br />
+			<span class="points">@item.points pts</span>
+			@if (myPoints < item.points) {
+				int missing = item.points - myPoints;
+				<p>You need <strong>@missing</strong> more points to redeem</p>
+			}
+			else
+			{
+				<a href="javascript:redem(@item.catalogId)" class="active">Redeem</a>
+			}
+		</div>
 	</li>
-}
+	}
 </ul>
+
+	</div>
